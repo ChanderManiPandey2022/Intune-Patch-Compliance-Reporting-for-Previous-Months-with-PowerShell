@@ -301,12 +301,16 @@ foreach ($device in $DevicesInfos) {
     $Freestorage     = ($device."Free storage" / 1024).ToString("N2")
     $deviceOSVersion = $device."osversion"
     $OSVersion =$deviceOSVersion.Split(".")[2]
-    $OSVersionV =  If ($OSVersion -eq '10240') {'Win10-1507'} ElseIf ($OSVersion -eq  "10586") {"Win10-1511"} ElseIf ($OSVersion -eq "14393") {"Win10-1607"} ElseIf ($OSVersion -eq "15063") {
+    $OSVersionV =   If ($OSVersion -eq '10240') {'Win10-1507'} ElseIf ($OSVersion -eq  "10586") {"Win10-1511"} ElseIf ($OSVersion -eq "14393") {"Win10-1607"} ElseIf ($OSVersion -eq "15063") {
            "Win10-1703"} ElseIf ($OSVersion -eq "16299") {"Win10-1709"} ElseIf ($OSVersion -eq "17134") {"Win10-1803"} ElseIf ($OSVersion -eq "17763") {'Win10-1809'} ElseIf ($OSVersion -eq '18362') {
            "Win10-1903"} ElseIf ($OSVersion -eq "18363") {"Win10-1909"} ElseIf ($OSVersion -eq "19041") {"Win10-2004"} ElseIf ($OSVersion -eq "19042") {"Win10-20H2"} ElseIf ($OSVersion -eq "19043") {
-           "Win10-21H1"} ElseIf ($OSVersion -eq "19044") {"Win10-21H2"} ElseIf ($OSVersion -eq "19045") {"Win10-22H2"} ElseIf ($OSVersion -eq "22000") {"Win11-21H2"} ElseIf ($OSVersion -eq "22621") {
-           "Win11-22H2"} ElseIf ($OSVersion -eq "22631") {"Win11-24H2"} ElseIf ($OSVersion -eq "26100") {"Win11-23H2"}ElseIf ($OSVersion -eq "0") {"No OS version"}ElseIf ($OSVersion -eq "7601") {"Win7-Or-Server"}
-           ElseIf ($OSVersion -eq $null) {"No OS version"}Else {$deviceOSVersion }
+           "Win10-21H1"} ElseIf ($OSVersion -eq "19044") {"Win10-21H2"} ElseIf ($OSVersion -eq "19045") {"Win10-22H2"} 
+
+            ElseIf ($OSVersion -eq "22000") {"Win11-21H2"} ElseIf ($OSVersion -eq "22621") {"Win11-22H2"} 
+            ElseIf ($OSVersion -eq "22631") {"Win11-23H2"} ElseIf ($OSVersion -eq "26100") {"Win11-24H2"}
+
+            ElseIf ($OSVersion -eq "0") {"No OS version"}ElseIf ($OSVersion -eq "7601") {"Win7-Or-Server"}
+            ElseIf ($OSVersion -eq $null) {"No OS version"}Else {$deviceOSVersion }
     $Ownership = $device.Ownership
     $LastcheckIn = $device."Last check-in"
     $JoinType = $device.JoinType
